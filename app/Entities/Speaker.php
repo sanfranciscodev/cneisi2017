@@ -1,45 +1,80 @@
 <?php
+
 namespace App\Entities;
 
-class Speaker
+use Illuminate\Database\Eloquent\Model;
+
+class Speaker extends Model
 {
-    /**
-     * @var string
-     */
-    private $slug;
-    
-    private $name;
-    
-    private $picture;
-    
-    public function __construct(string $slug, string $name)
+    protected $table = 'speakers';
+   
+    public function getName() : string
     {
-        $this->slug = $slug;
-        $this->name = $name;
+        return this->name;
     }
     
-    public function getSlug()
+    public function setName(string $name)
     {
-        return $this->slug;
+        this->name = $name;
+    }
+  
+    public function getPhoto() : string
+    {
+        return this->photo;
     }
     
-    public function getName()
+    public function setPhoto(string $photo)
     {
-        return $this->name;
+        this->photo = $photo;
+    }
+  
+    public function getTagLine() : string
+    {
+        return this->tagLine;
     }
     
-    public function getPicture()
+    public function setTagLine(string $tagLine)
     {
-        return $this->picture;
+        this->tagLine = $tagLine;
     }
     
-    public function setPicture(string $picture)
+    public function getDescription() : string
     {
-        $this->picture = $picture;
+        return this->description;
     }
     
-    public function hasPicture()
+    public function setDescription(string $description);
     {
-        return !empty($this->picture);
+        this->description = $description;
+    }
+    
+    public function getVideo() : string
+    {
+        return this->video;
+    }
+    
+    public function setVideo(string $video)
+    {
+        this->video = $video;
+    }
+    
+    public function getTagLine() : string
+    {
+        return this->tagLine;
+    }
+    
+    public function setTagLine(string $tagLine)
+    {
+        this->tagLine = $tagLine;
+    }
+    
+    public function getScore() : int
+    {
+        return this->score;
+    }
+    
+    public function setScore(int $score)
+    {
+        this->score = $score;
     }
 }
