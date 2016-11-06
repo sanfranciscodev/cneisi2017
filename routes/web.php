@@ -15,4 +15,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/speakers/{slug}', 'SpeakerController@show');
+Route::get(
+    '/speaker',
+    ['as' => 'speaker.index', 'uses' => 'SpeakerController@index']
+);
+
+Route::get(
+    '/conference',
+    ['as' => 'conference.index', 'uses' => 'ConferenceController@index']
+);
+
+Route::get(
+    '/speaker/create',
+    ['as' => 'speaker.create', 'uses' => 'SpeakerController@create']
+);
+
+Route::post(
+    '/speaker',
+    ['as' => 'speaker.store', 'uses' => 'SpeakerController@store']
+);
+
+Route::get(
+    '/speaker/{speaker}',
+    ['as' => 'speaker.show', 'uses' => 'SpeakerController@show']
+);
+
+Route::get(
+    '/speaker/{speaker}/edit',
+    ['as' => 'speaker.edit', 'uses' => 'SpeakerController@edit']
+);
+
+Route::put(
+    '/speaker/{speaker}',
+    ['as' => 'speaker.update', 'uses' => 'SpeakerController@update']
+);
+
+Route::delete(
+    '/speaker/{speaker}',
+    ['as' => 'speaker.destroy', 'uses' => 'SpeakerController@destroy']
+);
+
+//Route::get('/speakers/{slug}', 'SpeakerController@show');
+//Route::get('/conferences/{slug}', 'ConferenceController@show');
