@@ -4,7 +4,7 @@ namespace App\Entities;
 
 use InvalidArgumentException;
 
-class ConferenceCategory
+class Category
 {
     /**
      * @var string
