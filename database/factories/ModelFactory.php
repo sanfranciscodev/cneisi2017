@@ -11,6 +11,9 @@
 |
 */
 
+/*
+*Example
+*/
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
