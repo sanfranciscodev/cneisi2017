@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get(
     '/speaker',
     ['as' => 'speaker.index', 'uses' => 'SpeakerController@index']
-);
+)->middleware('can:view-speakers');
 
 Route::get(
     '/conference',
@@ -57,3 +57,7 @@ Route::delete(
 
 //Route::get('/speakers/{slug}', 'SpeakerController@show');
 //Route::get('/conferences/{slug}', 'ConferenceController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
