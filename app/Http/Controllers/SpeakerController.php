@@ -11,6 +11,8 @@ use App\Http\Requests\UpdateSpeakerRequest;
 use App\Entities\Speaker;
 use App\Entities\SpeakerCategory;
 
+use Illuminate\Support\Facades\Auth;
+
 class SpeakerController extends Controller
 {
     /**

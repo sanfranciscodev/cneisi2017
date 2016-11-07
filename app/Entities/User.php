@@ -1,12 +1,16 @@
 <?php
-
-namespace App;
+namespace App\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $table = 'users';
+
     use Notifiable;
 
     /**
