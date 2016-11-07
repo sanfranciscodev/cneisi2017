@@ -22,7 +22,7 @@ class CreateConferencesTable extends Migration
             $table->integer('duration');
             $table->integer('speaker_id')->unsigned();
             $table->foreign('speaker_id')->references('id')->on('speakers');
-            $table->string('category');
+            $table->string('category_name');
             $table->timestamps();
         });
     }

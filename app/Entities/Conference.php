@@ -3,17 +3,9 @@
 namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Entities\Speaker;
 
 class Conference extends Model
 {
-    /**
-     * The class name.
-     *
-     * @var string
-     */
-    const CLASS_NAME = 'App\Entities\Conference';
-
     /**
      * The table associated with the model.
      *
@@ -31,7 +23,7 @@ class Conference extends Model
         return $this->title;
     }
 
-    public function setTitle( $title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
@@ -41,7 +33,7 @@ class Conference extends Model
         return $this->description;
     }
 
-    public function setDescription( $description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -51,7 +43,7 @@ class Conference extends Model
         return $this->date;
     }
     
-    public function setDate($date)
+    public function setDate(string $date)
     {
         $this->date = $date;
     }
@@ -61,14 +53,9 @@ class Conference extends Model
         return $this->duration;
     }
     
-    public function setDuration( $duration)
+    public function setDuration(int $duration)
     {
         $this->duration = $duration;
-    }
-
-    public function setSpeaker( $speaker)
-    {
-        $this->speaker = $speaker;
     }
 
     public function getSpeaker()
@@ -76,14 +63,19 @@ class Conference extends Model
         return $this->speaker;
     }
 
-    public function setCategory(string $category)
+    public function setSpeaker(Speaker $speaker)
     {
-        $this->category = $category;
+        $this->speaker = $speaker;
     }
 
     public function getCategory()
     {
         return $this->category;
+    }
+
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
     }
 
     /**
@@ -92,7 +84,12 @@ class Conference extends Model
     *@return void
     */
     public function speaker() 
-    {
-        return $this->belongsTo('App\Entities\Speaker');
+    {   
+        return $this->belongsTo(Speaker::class);
+    }
+
+    public function category() 
+    {   
+        return $this->belongsTo(Category::class);
     }
 }

@@ -18,7 +18,7 @@
                                 <th> <h2>Descripcion</h2></th>
                                 <th> <h2>Speaker</h2> </th>
                                 <th> <h2>Fecha y duración</h2> </th>
-                                <th style="width: 126px"></th>
+                                <!-- <th style="width: 126px"></th> -->
                             </tr>
                         </thead>
                         <tbody>

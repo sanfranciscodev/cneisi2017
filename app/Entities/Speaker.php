@@ -7,13 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Speaker extends Model
 {
     /**
-     * The class name.
-     *
-     * @var string
-     */
-    const CLASS_NAME = 'App\Entities\Speaker';
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -50,7 +43,7 @@ class Speaker extends Model
         return $this->category;
     }
 
-    public function setCategory(SpeakerCategory $category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
     }
@@ -112,11 +105,11 @@ class Speaker extends Model
 
     public function conference() 
     {
-        return $this->hasOne('App\Entities\Conference');
+        return $this->hasOne(Conference::class);
     }
 
     public function category() 
     {
-        return $this->belongsTo('App\Entities\SpeakerCategory');
+        return $this->belongsTo(Category::class);
     }
 }

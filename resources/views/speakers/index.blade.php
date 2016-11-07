@@ -17,7 +17,7 @@
                                 <th> <h2>ID</h2> </th>
                                 <th> <h2>Foto</h2></th>
                                 <th> <h2>Datos personales</h2> </th>
-                                <th style="width: 126px"></th>
+                                <!-- <th style="width: 126px"></th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -33,13 +33,12 @@
                                                 >
                                             </p>
                                         @endif
-                                        <h3><b>Categoria</b></h3>{{ $speaker->category->getCategory() }}
                                     </td>
                                     <td>
                                         <p class="text-muted text-center">
                                         <h3><b>Nombre</b></h3>{{ $speaker->getName() }}
                                         <h3><b>Tagline</b></h3>{{ $speaker->getTagline() }}
-                                        <h3><b>Description</b></h3>{{ $speaker->getDescription() }}
+                                        <h3><b>Descripción</b></h3>{{ $speaker->getDescription() }}
                                         </p>
                                     </td>
                                 </tr>

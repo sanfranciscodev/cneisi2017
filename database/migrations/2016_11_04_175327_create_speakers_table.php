@@ -18,8 +18,7 @@ class CreateSpeakersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categoriesSpeakers');
+            $table->string('category_name');
             $table->string('picture');
             $table->string('tagline');
             $table->string('description');
