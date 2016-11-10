@@ -5,13 +5,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
+    const UTN_STUDENT = 'utn_student';
+    const UTN_GRADUATED = 'utn_graduated';
+    const GENERAL_PUBLIC = 'general_public';
+
     private $type;
     private $studentNumber;
     private $university;
 
-    const UTN_STUDENT = 'utn_student';
-    const UTN_GRADUATED = 'utn_graduated';
-    const GENERAL_PUBLIC = 'general_public';
+    protected $table = 'users_profile';
 
     const ALL_TYPES = [self::UTN_STUDENT, self::UTN_GRADUATED, self::GENERAL_PUBLIC];
 
@@ -57,5 +59,10 @@ class UserProfile extends Model
     public function setUniversity(string $university)
     {
         $this->university = $university;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
