@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get(
     '/speaker',
     ['as' => 'speaker.index', 'uses' => 'SpeakerController@index']
-)->middleware('can:view-speakers');
+);//->middleware('can:view-speakers');
 
 Route::get(
     '/conference',
@@ -55,10 +55,12 @@ Route::delete(
     ['as' => 'speaker.destroy', 'uses' => 'SpeakerController@destroy']
 );
 
-Route::get(
-    '/userProfile/{user}',
-    ['as' => 'userProfile.show', 'uses' => 'UserProfileController@show']
-):
+Route::group(['middleware' => 'auth'], function () {
+    Route::get(
+        '/userProfile/edit',
+        ['as' => 'userProfile.edit', 'uses' => 'UserProfileController@edit']
+    );
+});
 
 //Route::get('/speakers/{slug}', 'SpeakerController@show');
 //Route::get('/conferences/{slug}', 'ConferenceController@show');
