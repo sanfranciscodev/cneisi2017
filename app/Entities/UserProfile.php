@@ -12,6 +12,7 @@ class UserProfile extends Model
     private $type;
     private $studentNumber;
     private $university;
+    private $dni;
 
     protected $table = 'users_profile';
 
@@ -59,6 +60,16 @@ class UserProfile extends Model
     public function setUniversity(string $university)
     {
         $this->university = $university;
+    }
+
+    public function getDni()
+    {
+        return $this->dni;
+    }
+
+    public function setDni(int $dni)
+    {
+        $this->dni = $dni;
     }
 
     public function user()
