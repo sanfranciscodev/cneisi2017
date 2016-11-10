@@ -22,7 +22,7 @@ class Category
         if (!in_array(strtolower($name), static::ALL_NAMES) {
             throw new InvalidArgumentException("Invalid category name: {$name}");
         } else{
-            $this->name = $name;    
+            $this->name = $name;
         }
     }
 
@@ -31,12 +31,12 @@ class Category
         return $this->name;
     }
 
-    public function conference() 
+    public function conference()
     {
         return $this->hasMany(Conference::class);
     }
 
-    public function speaker() 
+    public function speaker()
     {
         return $this->hasMany(Speaker::class);
     }
