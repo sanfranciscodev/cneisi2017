@@ -55,6 +55,11 @@ Route::delete(
     ['as' => 'speaker.destroy', 'uses' => 'SpeakerController@destroy']
 );
 
+Route::get(
+    '/userProfile/{user}',
+    ['as' => 'userProfile.show', 'uses' => 'UserProfileController@show']
+):
+
 //Route::get('/speakers/{slug}', 'SpeakerController@show');
 //Route::get('/conferences/{slug}', 'ConferenceController@show');
 
