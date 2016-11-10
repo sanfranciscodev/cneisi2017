@@ -7,7 +7,7 @@ class UserProfile extends Model
 {
     const UTN_STUDENT = 'utn_student';
     const UTN_GRADUATED = 'utn_graduated';
-    const GENERAL_PUBLIC = 'general_public';
+    const GENERAL_AUDIENCE = 'general_audience';
 
     private $type;
     private $studentNumber;
@@ -15,7 +15,7 @@ class UserProfile extends Model
 
     protected $table = 'users_profile';
 
-    const ALL_TYPES = [self::UTN_STUDENT, self::UTN_GRADUATED, self::GENERAL_PUBLIC];
+    const ALL_TYPES = [self::UTN_STUDENT, self::UTN_GRADUATED, self::GENERAL_AUDIENCE];
 
     public function __construct(string $type)
     {
