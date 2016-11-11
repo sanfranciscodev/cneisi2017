@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get(
     '/speaker',
     ['as' => 'speaker.index', 'uses' => 'SpeakerController@index']
-)->middleware('can:view-speakers');
+);
 
 Route::get(
     '/conference',
@@ -26,33 +26,13 @@ Route::get(
 );
 
 Route::get(
-    '/speaker/create',
-    ['as' => 'speaker.create', 'uses' => 'SpeakerController@create']
-);
-
-Route::post(
-    '/speaker',
-    ['as' => 'speaker.store', 'uses' => 'SpeakerController@store']
-);
-
-Route::get(
-    '/speaker/{speaker}',
-    ['as' => 'speaker.show', 'uses' => 'SpeakerController@show']
-);
-
-Route::get(
-    '/speaker/{speaker}/edit',
-    ['as' => 'speaker.edit', 'uses' => 'SpeakerController@edit']
+    '/profile',
+    ['as' => 'profile.edit', 'uses' => 'UserProfileController@edit']
 );
 
 Route::put(
-    '/speaker/{speaker}',
-    ['as' => 'speaker.update', 'uses' => 'SpeakerController@update']
-);
-
-Route::delete(
-    '/speaker/{speaker}',
-    ['as' => 'speaker.destroy', 'uses' => 'SpeakerController@destroy']
+    '/profile/{profile}',
+    ['as' => 'profile.update', 'uses' => 'UserProfileController@update']
 );
 
 //Route::get('/speakers/{slug}', 'SpeakerController@show');
