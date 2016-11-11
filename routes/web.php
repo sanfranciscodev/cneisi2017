@@ -61,3 +61,6 @@ Route::delete(
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/redirect','SocialiteAuthController@redirect');
+Route::get('/callback','SocialiteAuthController@callback');
