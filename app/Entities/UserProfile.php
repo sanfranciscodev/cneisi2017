@@ -21,6 +21,8 @@ class UserProfile extends Authenticatable
     const UTN_GRADUATED = 'graduated';
     const GENERAL_AUDIENCE = 'general_audience';
 
+    const ALL_TYPES = [self::UTN_STUDENT, self::UTN_GRADUATED, self::GENERAL_AUDIENCE];
+
     public function getId()
     {
         return $this->id;
@@ -46,14 +48,14 @@ class UserProfile extends Authenticatable
         $this->dni = $dni;
     }
 
-    public function getFacultad()
+    public function getUniversityRegion()
     {
-        return $this->facultad;
+        return $this->university_region;
     }
 
-    public function setFacultad(string $facultad)
+    public function setUniversityRegion(string $university_region) 
     {
-        $this->facultad = $facultad;
+        return $this->university_region = $university_region;
     }
 
     public function getLegajo()

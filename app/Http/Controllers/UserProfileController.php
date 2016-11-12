@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Entities\User;
 use App\Entities\UserProfile;
+use App\Entities\University;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests;
 use Auth;
@@ -44,10 +45,12 @@ class UserProfileController extends Controller
     {
         $profileId = Auth::user()->user_profile_id;
         $profile = UserProfile::findOrFail($profileId);
+        $universities = new University();
 
         if (empty($profile->dni)) {
             return view(self::PROFILES_EDIT_VIEW)
-            ->with('userProfile', $profile);
+            ->with('userProfile', $profile)
+            ->with('universities', $universities->getAll());
         } else {
             return view(self::PROFILES_INDEX_VIEW)
             ->with('user', Auth::user());
@@ -68,8 +71,9 @@ class UserProfileController extends Controller
             $profile->setDni($request->dni);
             $profile->setUserType($request->userType);
 
-            if (!empty($request->facultad)) {
-                $profile->setFacultad($request->facultad);
+            if (!empty($request->university_region)) {
+                $profile->setUniversityRegion(
+                    strtolower($request->university_region));
             }
 
             if (!empty($request->legajo)) {

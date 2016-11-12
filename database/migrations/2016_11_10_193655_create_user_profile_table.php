@@ -17,7 +17,7 @@ class CreateUserProfileTable extends Migration
             $table->increments('id');
             $table->bigInteger('dni')->nullable();
             $table->string('type')->nullable();
-            $table->string('facultad')->nullable();
+            $table->string('university_region')->nullable();
             $table->string('legajo')->nullable();
             $table->timestamps();
         });

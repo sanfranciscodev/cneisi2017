@@ -14,9 +14,9 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th> <h2>ID</h2> </th>
-                                <th> <h2>Foto</h2></th>
-                                <th> <h2>Datos personales</h2> </th>
+                                <th> <h2>{{ trans('speakers.identificator') }}</h2> </th>
+                                <th> <h2>{{ trans('speakers.picture') }}</h2></th>
+                                <th> <h2>{{ trans('speakers.data') }}</h2> </th>
                                 <!-- <th style="width: 126px"></th> -->
                             </tr>
                         </thead>
@@ -36,9 +36,9 @@
                                     </td>
                                     <td>
                                         <p class="text-muted text-center">
-                                        <h3><b>Nombre</b></h3>{{ $speaker->getName() }}
-                                        <h3><b>Tagline</b></h3>{{ $speaker->getTagline() }}
-                                        <h3><b>Descripción</b></h3>{{ $speaker->getDescription() }}
+                                        <h3><b>{{ trans('speakers.name') }}</b></h3>{{ $speaker->getName() }}
+                                        <h3><b>{{ trans('speakers.tagline') }}</b></h3>{{ $speaker->getTagline() }}
+                                        <h3><b>{{ trans('speakers.description') }}</b></h3>{{ $speaker->getDescription() }}
                                         </p>
                                     </td>
                                 </tr>

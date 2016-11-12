@@ -14,10 +14,10 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th> <h2>Titulo</h2> </th>
-                                <th> <h2>Descripcion</h2></th>
-                                <th> <h2>Speaker</h2> </th>
-                                <th> <h2>Fecha y duración</h2> </th>
+                                <th> <h2>{{ trans('conference.title') }}</h2> </th>
+                                <th> <h2>{{ trans('conference.description') }}</h2></th>
+                                <th> <h2>{{ trans('conference.speaker') }}</h2> </th>
+                                <th> <h2>{{ trans('conference.date') }}</h2> </th>
                                 <!-- <th style="width: 126px"></th> -->
                             </tr>
                         </thead>

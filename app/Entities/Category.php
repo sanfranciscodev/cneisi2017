@@ -19,7 +19,7 @@ class Category
 
     public function __construct(string $name)
     {
-        if (!in_array(strtolower($name), static::ALL_NAMES) {
+        if (!in_array(strtolower($name), static::ALL_NAMES)) {
             throw new InvalidArgumentException("Invalid category name: {$name}");
         } else{
             $this->name = $name;    
