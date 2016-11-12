@@ -14,7 +14,7 @@ class AddUserProfileIdToUsers extends Migration
     public function up()
     {   
         Schema::table('users', function (Blueprint $table){
-            $table->integer('user_profile_id')->unsigned()->nullable;
+            $table->integer('user_profile_id')->unsigned()->nullable();
             $table->foreign('user_profile_id')->references('id')->on('user_profiles');
         });
     }

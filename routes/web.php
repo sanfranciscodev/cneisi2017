@@ -16,12 +16,12 @@ Route::get('/', function () {
 });
 
 Route::get(
-    '/speaker',
+    '/speakers',
     ['as' => 'speaker.index', 'uses' => 'SpeakerController@index']
 );
 
 Route::get(
-    '/conference',
+    '/conferences',
     ['as' => 'conference.index', 'uses' => 'ConferenceController@index']
 );
 

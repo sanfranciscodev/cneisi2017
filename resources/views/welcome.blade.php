@@ -79,8 +79,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="/speaker">Speakers admin</a>
-                    <a href="/conference">Conferencias admin</a>
+                    <a href="/speakers">Speakers admin</a>
+                    <a href="/conferences">Conferencias admin</a>
                 </div>
             </div>
         </div>
