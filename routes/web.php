@@ -62,5 +62,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/redirect/{provider}', 'SocialAuthController@redirect');
 Route::get('/callback/{provider}', 'SocialAuthController@callback');
