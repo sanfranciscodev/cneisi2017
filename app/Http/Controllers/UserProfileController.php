@@ -63,31 +63,26 @@ class UserProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, $id)
     {
-        if ($id == Auth::user()->user_profile_id) {
-            try {
-                $profile = UserProfile::findOrFail($id);
-                $profile->setDni($request->dni);
-                $profile->setUserType($request->userType);
+        try {
+            $profile = UserProfile::findOrFail($id);
+            $profile->setDni($request->dni);
+            $profile->setUserType($request->userType);
 
-                if (!empty($request->facultad)) {
-                    $profile->setFacultad($request->facultad);
-                }
-
-                if (!empty($request->legajo)) {
-                    $profile->setLegajo($request->legajo);
-                }
-                $profile->save();
-
-                Session::flash('success', trans('users.profile_updated_message'));
-            } catch (Exception $e) {
-                Session::flash('error', trans('users.profile_not_updated_message'));
+            if (!empty($request->facultad)) {
+                $profile->setFacultad($request->facultad);
             }
 
-            return view(self::PROFILES_INDEX_VIEW)
-                ->with('user', Auth::user());;   
-        } else {
-            Auth::logout();
-            return redirect()->to(self::ROOT);
+            if (!empty($request->legajo)) {
+                $profile->setLegajo($request->legajo);
+            }
+            $profile->save();
+
+            Session::flash('success', trans('users.profile_updated_message'));
+        } catch (Exception $e) {
+            Session::flash('error', trans('users.profile_not_updated_message'));
         }
+
+        return view(self::PROFILES_INDEX_VIEW)
+            ->with('user', Auth::user());;
     }
 }

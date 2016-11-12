@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Session;
+use App\Entities\User;
+use App\Entities\UserProfile;
+use Auth;
 
 class UpdateProfileRequest extends FormRequest
 {
@@ -13,7 +17,12 @@ class UpdateProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $profileId = $this->route('profile');
+        if ($profileId == Auth::user()->user_profile_id) {
+            return true;
+        } else {
+            return false;
+        }   
     }
 
     /**
