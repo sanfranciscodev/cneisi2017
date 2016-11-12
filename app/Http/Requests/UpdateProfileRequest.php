@@ -24,10 +24,14 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'dni'        => 'required|integer|',
-            'userType'   => 'required|min:5|max:255',
-            'facultad'   => 'min:5|max:255',
-            'legajo'     => 'integer'
+            'dni'        => 'required|integer|digits_between :7,8',
+            'userType'   => 'required|min:5|max:17',
+            'facultad'   => 'required_if:userType,student|required_if:userType,graduated|min:5|max:55',
+            'legajo'     => 'required_if:userType,student|integer|digits_between :4,7'
         ];
+
+
     }
+
+   
 }
