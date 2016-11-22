@@ -27,7 +27,7 @@ Route::get(
 
 Route::get(
     '/profile',
-    ['as' => 'profile.edit', 'uses' => 'UserProfileController@edit']
+    ['as' => 'profile.create', 'uses' => 'UserProfileController@create']
 );
 
 Route::put(

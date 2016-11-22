@@ -24,7 +24,31 @@ class UserProfileController extends Controller
     const PROFILES_INDEX_VIEW  = 'usersProfiles.index';
     const PROFILES_EDIT_VIEW  = 'usersProfiles.edit';
     
+    /**
+     * Redirect to 
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        if ($this->userHasNotProfile()) {
+            $profile = UserProfile::create([]);
+            $profile->user()->save(Auth::user());
+        }
 
+        return $this->edit();
+    }
+
+    /**
+     *Check if user has a profile created
+     *
+     * @return bool
+     */
+    public function userHasNotProfile()
+    {
+        return (is_null(Auth::user()->user_profile_id));
+            
+    }
                 
      /**
      * Display a listing of the resource.
@@ -33,7 +57,8 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        return view(self::PROFILES_INDEX_VIEW);
+        return view(self::PROFILES_INDEX_VIEW)
+        ->with('user', Auth::user());
     }
 
     /**
@@ -52,8 +77,7 @@ class UserProfileController extends Controller
             ->with('userProfile', $profile)
             ->with('universities', $universities->getAll());
         } else {
-            return view(self::PROFILES_INDEX_VIEW)
-            ->with('user', Auth::user());
+            return redirect()->to(self::PROF);
         }
     }
 

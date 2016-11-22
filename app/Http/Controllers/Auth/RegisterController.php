@@ -69,8 +69,8 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        $profile = UserProfile::create([]);
-        $profile->user()->save($user);
+        //$profile = UserProfile::create([]);
+        //$profile->user()->save($user);
 
         return $user;
 
