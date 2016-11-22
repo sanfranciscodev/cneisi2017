@@ -30,4 +30,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    public function userProfile() 
+    {
+        return $this->belongsTo(UserProfile::class);
+    }
+
 }
+
